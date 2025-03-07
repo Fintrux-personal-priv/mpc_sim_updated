@@ -1,0 +1,579 @@
+# version: "3.8"
+# services:
+#   bank1:
+#     build: .
+#     container_name: bank1
+#     environment:
+#       - BANK_ID=1
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "5001:5001"    # Return channel for Bank 1
+#       - "6001:6001"    # Secret sharing port for Bank 1
+#       - "7001:7001"    # Round-robin port for Bank 1
+#       - "8001:8001"    # API port for Bank 1
+#     networks:
+#       - mpc-net
+
+#   bank2:
+#     build: .
+#     container_name: bank2
+#     environment:
+#       - BANK_ID=2
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "6002:6002"    # Secret sharing port for Bank 2
+#       - "7002:7002"    # Round-robin port for Bank 2
+#       - "8002:8002"    # API port for Bank 2
+#     networks:
+#       - mpc-net
+#     depends_on:
+#       - bank1
+
+#   bank3:
+#     build: .
+#     container_name: bank3
+#     environment:
+#       - BANK_ID=3
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "6003:6003"    # Secret sharing port for Bank 3
+#       - "7003:7003"    # Round-robin port for Bank 3
+#       - "8003:8003"    # API port for Bank 3
+#     networks:
+#       - mpc-net
+#     depends_on:
+#       - bank2
+
+#   bank4:
+#     build: .
+#     container_name: bank4
+#     environment:
+#       - BANK_ID=4
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "6004:6004"    # Secret sharing port for Bank 4
+#       - "7004:7004"    # Round-robin port for Bank 4
+#       - "8004:8004"    # API port for Bank 4
+#     networks:
+#       - mpc-net
+#     depends_on:
+#       - bank3
+
+#   bank5:
+#     build: .
+#     container_name: bank5
+#     environment:
+#       - BANK_ID=5
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "6005:6005"    # Secret sharing port for Bank 5
+#       - "7005:7005"    # Round-robin port for Bank 5
+#       - "8005:8005"    # API port for Bank 5
+#     networks:
+#       - mpc-net
+#     depends_on:
+#       - bank4
+
+#   bank6:
+#     build: .
+#     container_name: bank6
+#     environment:
+#       - BANK_ID=6
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "6006:6006"    # Secret sharing port for Bank 6
+#       - "7006:7006"    # Round-robin port for Bank 6
+#       - "8006:8006"    # API port for Bank 6
+#     networks:
+#       - mpc-net
+#     depends_on:
+#       - bank5
+
+#   bank7:
+#     build: .
+#     container_name: bank7
+#     environment:
+#       - BANK_ID=7
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "6007:6007"    # Secret sharing port for Bank 7
+#       - "7007:7007"    # Round-robin port for Bank 7
+#       - "8007:8007"    # API port for Bank 7
+#     networks:
+#       - mpc-net
+#     depends_on:
+#       - bank6
+
+#   bank8:
+#     build: .
+#     container_name: bank8
+#     environment:
+#       - BANK_ID=8
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "6008:6008"    # Secret sharing port for Bank 8
+#       - "7008:7008"    # Round-robin port for Bank 8
+#       - "8008:8008"    # API port for Bank 8
+#     networks:
+#       - mpc-net
+#     depends_on:
+#       - bank7
+
+#   bank9:
+#     build: .
+#     container_name: bank9
+#     environment:
+#       - BANK_ID=9
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "6009:6009"    # Secret sharing port for Bank 9
+#       - "7009:7009"    # Round-robin port for Bank 9
+#       - "8009:8009"    # API port for Bank 9
+#     networks:
+#       - mpc-net
+#     depends_on:
+#       - bank8
+
+#   bank10:
+#     build: .
+#     container_name: bank10
+#     environment:
+#       - BANK_ID=10
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "6010:6010"    # Secret sharing port for Bank 10
+#       - "7010:7010"    # Round-robin port for Bank 10
+#       - "8010:8010"    # API port for Bank 10
+#     networks:
+#       - mpc-net
+#     depends_on:
+#       - bank9
+
+#   bank11:
+#     build: .
+#     container_name: bank11
+#     environment:
+#       - BANK_ID=11
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "6011:6011"    # Secret sharing port for Bank 11
+#       - "7011:7011"    # Round-robin port for Bank 11
+#       - "8011:8011"    # API port for Bank 11
+#     networks:
+#       - mpc-net
+#     depends_on:
+#       - bank10
+
+#   bank12:
+#     build: .
+#     container_name: bank12
+#     environment:
+#       - BANK_ID=12
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "6012:6012"    # Secret sharing port for Bank 12
+#       - "7012:7012"    # Round-robin port for Bank 12
+#       - "8012:8012"    # API port for Bank 12
+#     networks:
+#       - mpc-net
+#     depends_on:
+#       - bank11
+
+#   bank13:
+#     build: .
+#     container_name: bank13
+#     environment:
+#       - BANK_ID=13
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "6013:6013"    # Secret sharing port for Bank 13
+#       - "7013:7013"    # Round-robin port for Bank 13
+#       - "8013:8013"    # API port for Bank 13
+#     networks:
+#       - mpc-net
+#     depends_on:
+#       - bank12
+
+#   bank14:
+#     build: .
+#     container_name: bank14
+#     environment:
+#       - BANK_ID=14
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "6014:6014"    # Secret sharing port for Bank 14
+#       - "7014:7014"    # Round-robin port for Bank 14
+#       - "8014:8014"    # API port for Bank 14
+#     networks:
+#       - mpc-net
+#     depends_on:
+#       - bank13
+
+#   bank15:
+#     build: .
+#     container_name: bank15
+#     environment:
+#       - BANK_ID=15
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "6015:6015"    # Secret sharing port for Bank 15
+#       - "7015:7015"    # Round-robin port for Bank 15
+#       - "8015:8015"    # API port for Bank 15
+#     networks:
+#       - mpc-net
+#     depends_on:
+#       - bank14
+
+#   bank16:
+#     build: .
+#     container_name: bank16
+#     environment:
+#       - BANK_ID=16
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "6016:6016"    # Secret sharing port for Bank 16
+#       - "7016:7016"    # Round-robin port for Bank 16
+#       - "8016:8016"    # API port for Bank 16
+#     networks:
+#       - mpc-net
+#     depends_on:
+#       - bank15
+
+#   bank17:
+#     build: .
+#     container_name: bank17
+#     environment:
+#       - BANK_ID=17
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "6017:6017"    # Secret sharing port for Bank 17
+#       - "7017:7017"    # Round-robin port for Bank 17
+#       - "8017:8017"    # API port for Bank 17
+#     networks:
+#       - mpc-net
+#     depends_on:
+#       - bank16
+
+#   bank18:
+#     build: .
+#     container_name: bank18
+#     environment:
+#       - BANK_ID=18
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "6018:6018"    # Secret sharing port for Bank 18
+#       - "7018:7018"    # Round-robin port for Bank 18
+#       - "8018:8018"    # API port for Bank 18
+#     networks:
+#       - mpc-net
+#     depends_on:
+#       - bank17
+
+#   bank19:
+#     build: .
+#     container_name: bank19
+#     environment:
+#       - BANK_ID=19
+#       - TOTAL_BANKS=19
+#       - DEBUG_DELAY=0.1
+#     ports:
+#       - "6019:6019"    # Secret sharing port for Bank 19
+#       - "7019:7019"    # Round-robin port for Bank 19
+#       - "8019:8019"    # API port for Bank 19
+#     networks:
+#       - mpc-net
+#     depends_on:
+#       - bank18
+
+# networks:
+#   mpc-net:
+#     driver: bridge
+
+version: "3.8"
+
+services:
+  bank1:
+    build: .
+    container_name: bank1
+    environment:
+      - BANK_ID=1
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False  # Set to False for testing
+    ports:
+      - "8001:8001"
+    networks:
+      - mpc-net
+
+  bank2:
+    build: .
+    container_name: bank2
+    environment:
+      - BANK_ID=2
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False
+    ports:
+      - "8002:8002"
+    networks:
+      - mpc-net
+    depends_on:
+      - bank1
+
+  bank3:
+    build: .
+    container_name: bank3
+    environment:
+      - BANK_ID=3
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False
+    ports:
+      - "8003:8003"
+    networks:
+      - mpc-net
+    depends_on:
+      - bank2
+
+  bank4:
+    build: .
+    container_name: bank4
+    environment:
+      - BANK_ID=4
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False
+    ports:
+      - "8004:8004"
+    networks:
+      - mpc-net
+    depends_on:
+      - bank3
+
+  bank5:
+    build: .
+    container_name: bank5
+    environment:
+      - BANK_ID=5
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False
+    ports:
+      - "8005:8005"
+    networks:
+      - mpc-net
+    depends_on:
+      - bank4
+
+  bank6:
+    build: .
+    container_name: bank6
+    environment:
+      - BANK_ID=6
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False
+    ports:
+      - "8006:8006"
+    networks:
+      - mpc-net
+    depends_on:
+      - bank5
+
+  bank7:
+    build: .
+    container_name: bank7
+    environment:
+      - BANK_ID=7
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False
+    ports:
+      - "8007:8007"
+    networks:
+      - mpc-net
+    depends_on:
+      - bank6
+
+  bank8:
+    build: .
+    container_name: bank8
+    environment:
+      - BANK_ID=8
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False
+    ports:
+      - "8008:8008"
+    networks:
+      - mpc-net
+    depends_on:
+      - bank7
+
+  bank9:
+    build: .
+    container_name: bank9
+    environment:
+      - BANK_ID=9
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False
+    ports:
+      - "8009:8009"
+    networks:
+      - mpc-net
+    depends_on:
+      - bank8
+
+  bank10:
+    build: .
+    container_name: bank10
+    environment:
+      - BANK_ID=10
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False
+    ports:
+      - "8010:8010"
+    networks:
+      - mpc-net
+    depends_on:
+      - bank9
+
+  bank11:
+    build: .
+    container_name: bank11
+    environment:
+      - BANK_ID=11
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False
+    ports:
+      - "8011:8011"
+    networks:
+      - mpc-net
+    depends_on:
+      - bank10
+
+  bank12:
+    build: .
+    container_name: bank12
+    environment:
+      - BANK_ID=12
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False
+    ports:
+      - "8012:8012"
+    networks:
+      - mpc-net
+    depends_on:
+      - bank11
+
+  bank13:
+    build: .
+    container_name: bank13
+    environment:
+      - BANK_ID=13
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False
+    ports:
+      - "8013:8013"
+    networks:
+      - mpc-net
+    depends_on:
+      - bank12
+
+  bank14:
+    build: .
+    container_name: bank14
+    environment:
+      - BANK_ID=14
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False
+    ports:
+      - "8014:8014"
+    networks:
+      - mpc-net
+    depends_on:
+      - bank13
+
+  bank15:
+    build: .
+    container_name: bank15
+    environment:
+      - BANK_ID=15
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False
+    ports:
+      - "8015:8015"
+    networks:
+      - mpc-net
+    depends_on:
+      - bank14
+
+  bank16:
+    build: .
+    container_name: bank16
+    environment:
+      - BANK_ID=16
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False
+    ports:
+      - "8016:8016"
+    networks:
+      - mpc-net
+    depends_on:
+      - bank15
+
+  bank17:
+    build: .
+    container_name: bank17
+    environment:
+      - BANK_ID=17
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False
+    ports:
+      - "8017:8017"
+    networks:
+      - mpc-net
+    depends_on:
+      - bank16
+
+  bank18:
+    build: .
+    container_name: bank18
+    environment:
+      - BANK_ID=18
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False
+    ports:
+      - "8018:8018"
+    networks:
+      - mpc-net
+    depends_on:
+      - bank17
+
+  bank19:
+    build: .
+    container_name: bank19
+    environment:
+      - BANK_ID=19
+      - TOTAL_BANKS=19
+      - MOCK_MODE=False
+    ports:
+      - "8019:8019"
+    networks:
+      - mpc-net
+    depends_on:
+      - bank18
+
+networks:
+  mpc-net:
+    driver: bridge
